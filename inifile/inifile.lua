@@ -49,10 +49,10 @@ function inifile.parse(name)
 			t[section] = t[section] or {}
 		end
 		local key, value = line:match("^(%w+)%s-=%s-(.+)$")
-		if tonumber(value) then value = tonumber(value) end
-		if value == "true" then value = true end
-		if value == "false" then value = false end
 		if key and value then
+			if tonumber(value) then value = tonumber(value) end
+			if value == "true" then value = true end
+			if value == "false" then value = false end
 			t[section][key] = value
 		end
 	end
