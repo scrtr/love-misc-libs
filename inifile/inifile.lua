@@ -62,11 +62,11 @@ end
 function inifile.save(name, t)
 	local contents = ""
 	for section, s in pairs(t) do
-		local sec = ("[%s]\n"):format(section)
+		contents = contents .. ("[%s]\n"):format(section)
 		for key, value in pairs(s) do
-			sec = sec .. ("%s=%s\n"):format(key, tostring(value))
+			contents = contents .. ("%s=%s\n"):format(key, tostring(value))
 		end
-		contents = contents .. sec .. "\n"
+		contents = contents .. "\n"
 	end
 	write(name, contents)
 end
